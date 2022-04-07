@@ -57,6 +57,7 @@ mkdir -p /run/consul
 
 #mv /cloud-init/resolve.conf /etc/systemd/resolved.conf.d/consul.conf
 echo " creating resolve.conf - consul.conf"
+ sudo mkdir -p /etc/systemd/resolved.conf.d/
 sudo cat << EOF >  /etc/systemd/resolved.conf.d/consul.conf
 [Resolve]
 DNS=127.0.0.1:8600
@@ -88,7 +89,7 @@ Group=consul
 PIDFile=/run/consul/consul.pid
 Restart=on-failure
 Environment=GOMAXPROCS=2
-ExecStart=/usr/local/bin/consul agent -pid-file=/run/consul/consul.pid -config-dir=/etc/consul.d
+ExecStart=/usr/bin/consul agent -pid-file=/run/consul/consul.pid -config-dir=/etc/consul.d
 ExecReload=/bin/kill -s HUP $MAINPID
 KillSignal=SIGINT
 TimeoutStopSec=5
