@@ -11,8 +11,11 @@ variable "pem_key_name" {
 variable "ami" {
   description = "ami (ubuntu 18) to use - based on region"
   default = {
-    "us-east-1" = "ami-00ddb0e5626798373"
-    "us-east-2" = "ami-0dd9f0e7df0f0a138"
+    #"us-east-1" = "ami-00ddb0e5626798373"
+    #"us-east-1" = "ami-0b0ea68c435eb488d"
+    "us-east-1" = "ami-04505e74c0741db8d"
+    "us-east-2" = "ami-0fb653ca2d3203ac1"
+    #"us-east-2" = "ami-0dd9f0e7df0f0a138"
   }
 }
 
@@ -56,5 +59,5 @@ variable "common_tags" {
 variable "allow_cidrs" {
   description = "SSH cidrs, passed from the environment layer."
   type =  list(string)
-  default = ["84.229.153.195/32"]
+  default = ["84.229.153.195/32","5.29.14.249/32"]
 }
